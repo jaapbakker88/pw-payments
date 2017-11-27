@@ -1,0 +1,41 @@
+extends ../layout
+
+block content
+  #logo
+    #logo-retina 
+      img(src="/assets/images/logo.png")
+  #container
+    #header
+      #header-info(style="width:100%; max-width: 100%; text-align:center;") Thanks, your support means a lot!
+    #body.content
+      #form-fields
+        table.table
+          tr
+            td 
+              strong Name
+            td= customer.firstName + " " + customer.lastName
+          tr
+            td 
+              strong Email
+            td= customer.email
+          if customer.subscription
+            tr 
+              td 
+                strong Status
+              td(class=customer.subscription.status === 'active' ? 'green' : 'orange')= customer.subscription.status
+            tr 
+              td 
+                strong Description
+              td= customer.subscription.description
+            tr 
+              td 
+                strong Amount
+              td €#{customer.subscription.amount}
+          else
+            tr 
+              td 
+                strong Status
+              td Pending
+        p 
+          small You're subscription will auto renew, please email us at <a href="maito:dan@partywith.co">dan@partywith.co</a> to cancel your subscription at any given time.
+        

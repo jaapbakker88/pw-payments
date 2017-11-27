@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  br
+  .columns
+    .column
+    
+      table.table.is-fullwidth
+        thead
+          tr
+            th First Name
+            th Last Name
+            th Type
+            th Created
+            th PWAL ID
+            th MOLLIE ID
+            th Actions
+        tbody
+          each customer in customers
+            tr
+              td= customer.firstName
+              td= customer.lastName
+              td= customer.customerType
+              td= customer.createdAt.toDateString()
+              td= customer.userId
+              td= customer.customerId
+              td 
+                a.button.is-info.is-small(href=`/admin/${customer.id}`) view

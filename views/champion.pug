@@ -1,0 +1,49 @@
+extends layout
+
+block content
+
+  #logo
+    #logo-retina 
+      img(src="/assets/images/logo.png")
+  .container
+    .columns.is-centered
+      .column.is-6
+        .option
+          header 🏆 Become a Party Champion 🏆
+          .body.content
+            h1.title.is-1.has-text-centered 🏆
+            p Party Champions are <strong>verified users</strong> and a way that PartyWith generates revenue in order to <strong>keep the app running</strong>. By becoming a Champion, you're supporting our continued development and growth. <strong>Champions are our heroes!</strong> 
+            
+            p As a way to say thank you, Champions get these perks:
+            ul          
+              li <strong>A direct line of communication</strong> with the PartyWith team - you’ll be the first to see and hear about new features we’re building. You have a real say in the direction of the app.
+              li <strong>A shiny trophy</strong> displayed on your profile in the app. This shows that you support us and our mission! 🏆
+              li <em>You are eligible to earn <strong>‘Party Points’</strong> to spend on real party perks (launching soon).</em>
+            p.has-text-centered <a href="#" class="modal-button">Frequently Asked Questions</a>
+            div.has-text-centered
+              p <strong>Become a Champion</strong>
+              | For the price of a few drinks out in good company!
+          footer
+            .item12
+              form(action="/checkout" method="post")
+                input(type="hidden" name="item" value="champion")
+                button 1 Year (€20.00)
+            .item12
+              form(action="/checkout" method="post")
+                input(type="hidden" name="item" value="championl")
+                button Lifetime! (€50.00)
+        div.box.has-text-centered(style="margin: 0 0 1em;")
+          a(href="/invest" style="margin:0 0 1em; padding: ; height: 3.25em;") <strong>Become an Investor Instead</strong> <br> & Own a Piece of the Company 
+  .container
+    .columns.is-centered.is-multiline
+      .column.is-narrow
+        img.screenshot(src="/assets/images/feed.png")
+      .column.is-narrow
+        img.screenshot(src="/assets/images/profile.png")
+      .column.is-narrow
+        img.screenshot(src="/assets/images/profile-popup.png")
+  .container
+    div.has-text-centered
+      p(style="color:#fff; padding: 3rem 0;" ) We are the champions, my friends,<br> And we'll keep on partying 'til the end. 😂 🤘
+      
+        
