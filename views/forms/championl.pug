@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+  #logo
+    #logo-retina 
+      img(src="/assets/images/logo.png")
+  #container
+    #header
+      #header-amount(style="max-width: 100%; text-align:center; float: none") Lifetime Champion for <br>€50,-
+
+    form#body(action="/subscription/create" method="post")
+      #form-fields
+        .field
+          input.input(type="text" name="firstName" placeholder="First Name" required)
+        .field
+          input.input(type="text" name="lastName" placeholder="Last Name" required)
+        .field
+          input.input(type="text" name="email" placeholder="Email address" required)
+        if userId
+          input(type="hidden" name="userId" value=userId)
+        input.input(type="hidden" name="identifier" value="001")
+      #submit-grid
+        button#submit 🏆 Sign Me Up! 🏆
+  

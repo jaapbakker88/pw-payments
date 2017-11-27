@@ -37,11 +37,11 @@ router.all('/create', function(req, res) {
   } else if(req.body.identifier === '004') {
     type = "3 Month Starter";
     amount = 30;
-    description = "12 Month Starter";
+    description = "3 Month Starter";
   } else if(req.body.identifier === '005') {
     type = "6 Month Starter";
     amount = 50;
-    description = "12 Month Starter";
+    description = "6 Month Starter";
   } else if(req.body.identifier === '006') {
     type = "12 Month Starter";
     amount = 80;
