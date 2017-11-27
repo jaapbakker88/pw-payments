@@ -1,0 +1,26 @@
+extends ../layout
+
+block content
+  #logo
+    #logo-retina 
+      img(src="/assets/images/logo.png")
+  #container
+    #header
+      #header-amount(style="max-width: 100%; text-align:center; float: none") Yearly Verified Subscription for <br>€5,00/year
+
+    form#body(action="/subscription/create" method="post")
+      #form-fields
+        .field
+          input.input(type="text" name="firstName" placeholder="First Name" required)
+        .field
+          input.input(type="text" name="lastName" placeholder="Last Name" required)
+        .field
+          input.input(type="text" name="email" placeholder="Email address" required)
+        p.has-text-centered
+          small We'll charge you €0.01 to confirm the subscription. The actual first payment will be made within a couple of days. You can cancel your subscription at any given time.
+        if userId
+          input(type="hidden" name="userId" value=userId)
+        input.input(type="hidden" name="identifier" value="003")
+      #submit-grid
+        button#submit 🏆 Sign Me Up! 🏆
+  

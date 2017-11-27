@@ -60,8 +60,8 @@ app.use('/admin', adminRouter);
 var subscriptionRouter = require('./router/subscription');
 app.use('/subscription', subscriptionRouter);
 
-var championRouter = require('./router/champion');
-app.use('/champion', championRouter);
+var formsRouter = require('./router/forms');
+app.use('/f', formsRouter);
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.all("/checkout", function (req, res) {
