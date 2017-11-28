@@ -1,56 +1,61 @@
 extends layout
 
 block content
+  section.hero.is-info
+    .hero-body
+      .container
+        h1.title= customer.firstName + ' ' + customer.lastName
   br
-  .box
-    h1.title= customer.firstName + ' ' + customer.lastName
-    table.table.is-fullwidth
-      tbody
-        tr
-          td <strong>id</strong>
-          td= customer.id
-        tr
-          td <strong>userId</strong>
-          td= customer.userId
-        tr
-          td <strong>customerId</strong>
-          td= customer.customerId
-        tr
-          td <strong>subscription</strong>
-          td 
-            if customer.subscription
-              =customer.subscription.description.includes('Champion') === true ? '🏆 Champion 🏆' : customer.customerType
-            else
-              span(class="tag") One Off
-        tr
-          td <strong>status</strong>
-          td 
-            if customer.subscription
-              span(class=customer.subscription.status === "active" ? 'tag is-success' : 'tag')= customer.subscription.status
-        tr
-          td <strong>email</strong>
-          td= customer.email
-  
-  nav.level
-    .level-left
-      .level-item
-      
-        p.subtitle.is-5 <strong>#{totalNumber}</strong> Payments
+  br
+  .container
+    .box
+      table.table.is-fullwidth
+        tbody
+          tr
+            td <strong>id</strong>
+            td= customer.id
+          tr
+            td <strong>userId</strong>
+            td= customer.userId
+          tr
+            td <strong>customerId</strong>
+            td= customer.customerId
+          tr
+            td <strong>subscription</strong>
+            td 
+              if customer.subscription
+                =customer.subscription.description.includes('Champion') === true ? '🏆 Champion 🏆' : customer.customerType
+              else
+                span(class="tag") One Off
+          tr
+            td <strong>status</strong>
+            td 
+              if customer.subscription
+                span(class=customer.subscription.status === "active" ? 'tag is-success' : 'tag')= customer.subscription.status
+          tr
+            td <strong>email</strong>
+            td= customer.email
 
-  table.table.is-fullwidth
-    thead
-      tr
-        th date
-        th description
-        th amount
-        th method
-        th status
-    tbody
-      each payment in payments
-        tr 
-          td= payment.createdAt.toDateString()
-          td= payment.order.description
-          td= '€' + payment.order.amount
-          td= payment.order.method
-          td
-            span(class= payment.order.status === 'paid' ? 'tag is-success' : 'tag')= payment.order.status
+    nav.level
+      .level-left
+        .level-item
+
+          p.subtitle.is-5 <strong>#{payments.length}</strong> Payments
+
+    table.table.is-fullwidth
+      thead
+        tr
+          th date
+          th description
+          th amount
+          th method
+          th status
+      tbody
+        each payment in payments
+          tr 
+            td= payment.createdAt.toDateString()
+            td= payment.order.description
+            td= '€' + payment.order.amount
+            td= payment.order.method
+            td
+              span(class= payment.order.status === 'paid' ? 'tag is-success' : 'tag')= payment.order.status
