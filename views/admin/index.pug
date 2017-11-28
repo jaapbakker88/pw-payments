@@ -37,7 +37,7 @@ block content
               th First Name
               th Last Name
               th Type
-              th 🔄
+              th.has-text-centered 💸 🔄
               th Created
               th PWAL ID
               th MOLLIE ID
@@ -48,7 +48,7 @@ block content
                 td= customer.firstName
                 td= customer.lastName
                 td= customer.customerType
-                td= customer.subscription ? '✅' : '❌'
+                td.has-text-centered= customer.subscription ? '✅' : '❌'
                 td= customer.createdAt.toDateString()
                 td= customer.userId
                 td= customer.customerId
