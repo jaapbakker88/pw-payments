@@ -56,6 +56,6 @@ block content
                   a.button.is-info.is-small(href=`/admin/${customer.id}`) view
         hr
         nav.pagination.is-centered(role="navigation" aria-label="pagination")
-          a.pagination-previous(href=page === '' || page === 0 ? '#' : '/admin/page/' + (page - 1)) Previous
-          a.pagination-next(href=page === '' || page === 0 ? '/admin/page/1' : '/admin/page/' + (page + 1)) Next 
+          a.pagination-previous(href=page === '' || page === 0 ? '#' : '/admin/page/' + (page - 1), disabled=page === '' || page === 0) Previous
+          a.pagination-next(href=page === '' || page === 0 ? '/admin/page/1' : '/admin/page/' + (page + 1), disabled=customers.length < 10 || customers.length == 10 && (page + 1) * 10 === count) Next 
 
