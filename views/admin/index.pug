@@ -1,54 +1,61 @@
 extends layout
 
 block content
+  section.hero.is-info
+    .hero-body
+      .container
+        h1.title Orders
   br
-  .columns
-    .column
-      nav.level
-        .level-left
-          .level-item
-            p.subtitle.is-5
-              strong #{count} 
-              | Customers 
-          .level-item
-            .field.has-addons
-              p.control
-                input.input(placeholder="TODO: Search" type="text" disabled)
-              p.control
-                buttons(disabled).button Search
-        .level-right
-          p.level-item
-            strong All
-          p.level-item
-            a(href="#") Champions
-          p.level-item
-            a(href="#") Verified
-          p.level-item
-            a(href="#") Starter
-            
-      table.table.is-fullwidth
-        thead
-          tr
-            th First Name
-            th Last Name
-            th Type
-            th Created
-            th PWAL ID
-            th MOLLIE ID
-            th Actions
-        tbody
-          each customer in customers
+  .container
+    .columns
+      .column
+        nav.level
+          .level-left
+            .level-item
+              p.subtitle.is-5
+                strong #{count} 
+                | Orders 
+            .level-item
+              .field.has-addons
+                p.control
+                  input.input(placeholder="TODO: Search" type="text" disabled)
+                p.control
+                  buttons(disabled).button Search
+          .level-right
+            p.level-item
+              strong All
+            p.level-item
+              a(disabled) Champions
+            p.level-item
+              a(disabled) Verified
+            p.level-item
+              a(disabled) Starter
+
+        table.table.is-fullwidth
+          thead
             tr
-              td= customer.firstName
-              td= customer.lastName
-              td= customer.customerType
-              td= customer.createdAt.toDateString()
-              td= customer.userId
-              td= customer.customerId
-              td 
-                a.button.is-info.is-small(href=`/admin/${customer.id}`) view
-      hr
-      nav.pagination.is-centered(role="navigation" aria-label="pagination")
-        a.pagination-previous(href=page === '' || page === 0 ? '#' : '/admin/page/' + (page - 1)) Previous
-        a.pagination-next(href=page === '' || page === 0 ? '/admin/page/1' : '/admin/page/' + (page + 1)) Next 
-    
+              th First Name
+              th Last Name
+              th Type
+              th 🔄
+              th Created
+              th PWAL ID
+              th MOLLIE ID
+              th Actions
+          tbody
+            each customer in customers
+              tr
+                td= customer.firstName
+                td= customer.lastName
+                td= customer.customerType
+                td= customer.subscription ? '✅' : '❌'
+                td= customer.createdAt.toDateString()
+                td= customer.userId
+                td= customer.customerId
+                td 
+                  a.button.is-info.is-small(href=`/admin/${customer.id}`) view
+        hr
+        nav.pagination.is-centered(role="navigation" aria-label="pagination")
+          a.pagination-previous(href=page === '' || page === 0 ? '#' : '/admin/page/' + (page - 1)) Previous
+          a.pagination-next(href=page === '' || page === 0 ? '/admin/page/1' : '/admin/page/' + (page + 1)) Next 
+
