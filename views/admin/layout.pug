@@ -9,14 +9,16 @@ html
     title Admin
     link(href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css", rel="stylesheet")
   body
-  
-      
-    section.hero.is-info
-      .hero-body
-        .container
-          h1.title <a href="/admin">Admin</a>
-          h2.subtitle Subtitle
-          
-    .container
-      
-      block content
+    nav.navbar(role="navigation" aria-label="main navigation")
+      .navbar-brand
+        button.button.navbar-burger
+          span
+          span
+          span
+      .navbar-menu
+        .navbar-start
+          a.navbar-item(href="/admin") Admin
+        .navbar-end
+          a.navbar-item(href="/admin") Orders
+            
+    block content
