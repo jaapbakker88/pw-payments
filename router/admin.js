@@ -15,10 +15,9 @@ router.get('/', function(req, res){
       .exec(function(err, results){
       if(err) {
         console.log(err);
-        res.redirect('/');
+        res.redirect('/admin');
       } else {
         Customer.count({}, function(err, count){
-            console.log(count)
             res.render('admin/index', {customers: results, page: '', count: count});
         })
       }
@@ -37,9 +36,11 @@ router.get('/page/:page', function(req, res){
       .exec(function(err, results){
         if(err) {
           console.log(err);
-          res.redirect('/');
+          res.redirect('/admin');
         } else {
-          
+          Customer.count({}, function(err, count){
+            res.render('admin/index', {customers: results, page: page, count: count});
+          })
         }
       });
 });
