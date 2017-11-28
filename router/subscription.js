@@ -36,14 +36,17 @@ router.all('/create', function(req, res) {
     description = "Yearly Verified Payment";
   } else if(req.body.identifier === '004') {
     type = "3 Month Starter";
+    subscription = true;
     amount = 30;
     description = "3 Month Starter";
   } else if(req.body.identifier === '005') {
     type = "6 Month Starter";
+    subscription = true;
     amount = 50;
     description = "6 Month Starter";
   } else if(req.body.identifier === '006') {
     type = "12 Month Starter";
+    subscription = true;
     amount = 80;
     description = "12 Month Starter";
   } else {
@@ -103,7 +106,7 @@ router.all('/webhook', function(req, res) {
       
       // If payment has no subscription yet, create subscription and add to customer
       if (payment.recurringType === 'first') {
-        console.log('payment description includes first')
+        // console.log('payment description includes first')
         var type, amount, description, subscription, interval;
           if(payment.description.includes('001')) {
             type = "Lifetime Champion";
@@ -149,12 +152,12 @@ router.all('/webhook', function(req, res) {
                   description: description,
                   webhookUrl:    process.env.BASEURL + '/subscription/webhook' // optional
               }, function(subscription) {
-                  console.log('subscription created')
+                  // console.log('subscription created in mollie')
                   Customer.findOne({customerId: payment.customerId}, function(err, foundCustomer){
                     if(err || !foundCustomer) {
                       console.log(err);
                     } else {
-                      console.log('subscription saved')
+                      // console.log('subscription saved to db')
                       foundCustomer.subscription = subscription;
                       foundCustomer.save();
                     }

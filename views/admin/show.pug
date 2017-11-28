@@ -19,7 +19,9 @@ block content
           td <strong>subscription</strong>
           td 
             if customer.subscription
-              =customer.subscription.description.includes('Champion') === true ? '🏆 Champion 🏆' : '✅ Verified ✅'
+              =customer.subscription.description.includes('Champion') === true ? '🏆 Champion 🏆' : customer.customerType
+            else
+              span(class="tag") One Off
         tr
           td <strong>status</strong>
           td 

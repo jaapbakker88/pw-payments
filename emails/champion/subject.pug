@@ -1,1 +1,5 @@
-= `Thanks for becoming a ${customer.customerType}`
+if (payment.description.includes('Champion'))
+  = `Thanks for becoming a ${customer.customerType}`
+  
+if (payment.description.includes('Verified'))
+  = `Verified Member ✅ Payment Confirmation`

@@ -4,7 +4,28 @@ block content
   br
   .columns
     .column
-    
+      nav.level
+        .level-left
+          .level-item
+            p.subtitle.is-5
+              strong #{customers.length} 
+              | Customers 
+          .level-item
+            .field.has-addons
+              p.control
+                input.input(placeholder="TODO: Search" type="text" disabled)
+              p.control
+                buttons(disabled).button Search
+        .level-right
+          p.level-item
+            strong All
+          p.level-item
+            a(href="#") Champions
+          p.level-item
+            a(href="#") Verified
+          p.level-item
+            a(href="#") Starter
+            
       table.table.is-fullwidth
         thead
           tr

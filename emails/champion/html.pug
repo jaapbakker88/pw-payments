@@ -1,8 +1,7 @@
 .header
-  p Dear #{customer.firstName}
+  p Hey #{customer.firstName}
 .body
-  
-  
+
   if (payment.description.includes('Champion'))
     p Thank you for your #{payment.description}, you're now a verified member of the PartyWith app. Your support means so much to us. And welcome to the PartyWith family!!
 
@@ -13,13 +12,11 @@
       li <strong>Party points</strong>: Will be launched once we reach 100 champions on the app. Stay tuned.
     
   if (payment.description.includes('Verified'))
-    p Thank you for your #{payment.description}, you're now a verified member of the PartyWith app!
+    p Thanks for applying to become a Verified Member of PartyWith. Besides making the app a more trusted community, you’ll also stand out from the crowd!
 
-    p Your perks:
-    ul
-      li <strong>A shiny badge:</strong> Your badge will be proudly displayed on your profile starting 28 Nov 2017, for one year.
-      li <strong>A direct line of communication</strong> with the PartyWith team: Feel free to reach out to me anytime about the app, and I’ll keep you in the loop on the app’s latest updates as well.
-      li <strong>Party points</strong>: Will be launched once we reach 100 champions on the app. Stay tuned.
+    p We’re currently verifying your profile. The process takes up to 3 business days. 
+
+    p Once you’re approved, you will see a Verified badge on your profile. If we’re unable to verify your identity, we’ll send you an email asking for more information or return your money.
   
   
   p Cheers, <br> Dan
